@@ -1,4 +1,4 @@
-def fib(n):
+def fib(n, i=0, a=0, b=1):
     """Return the nth fibonacci number.
 
     >>> fib(6)
@@ -13,9 +13,9 @@ def fib(n):
 
     if not n >= 0:
         raise ValueError("n must be >= 0")
-    if n < 2:
-        return n
-    return fib(n - 1) + fib(n - 2)
+    if i < n:
+        return fib(n, i+1, b, a+b)
+    return a
 
 if __name__ == "__main__":
     import doctest
